@@ -118,7 +118,9 @@ async function setupOpenId() {
           }
 
           let fullName = '';
-          if (userinfo.given_name && userinfo.family_name) {
+          if (userinfo.name) {
+            fullName = userinfo.name;
+          } else if (userinfo.given_name && userinfo.family_name) {
             fullName = userinfo.given_name + ' ' + userinfo.family_name;
           } else if (userinfo.given_name) {
             fullName = userinfo.given_name;
